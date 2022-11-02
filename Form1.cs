@@ -227,6 +227,17 @@ namespace WindowsFormsApp1
         {
             if(textBox1.Text.Length > 0)
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length-1);
+            if (num2.Length > 0)
+                num2 = num2.Remove(num2.Length - 1);
+            else if(num2.Length < 0)
+            {
+                minus = false;
+                plus = false;
+                umnozhenie=false;
+                delenie=false;
+                if (num1.Length > 0)
+                    num1 = num1.Remove(num1.Length - 1);
+            }
         }   
       
     }
