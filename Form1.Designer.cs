@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.X_Button = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -44,7 +44,6 @@
             this.button_delenie = new System.Windows.Forms.Button();
             this.button_umnozh = new System.Windows.Forms.Button();
             this.button_plus = new System.Windows.Forms.Button();
-            this.button_point = new System.Windows.Forms.Button();
             this.button_Ravno = new System.Windows.Forms.Button();
             this.button_reset = new System.Windows.Forms.Button();
             this.button_edit = new System.Windows.Forms.Button();
@@ -61,17 +60,20 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // X_Button
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(594, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.X_Button.AutoSize = true;
+            this.X_Button.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.X_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.X_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.X_Button.Location = new System.Drawing.Point(594, 9);
+            this.X_Button.Name = "X_Button";
+            this.X_Button.Size = new System.Drawing.Size(26, 25);
+            this.X_Button.TabIndex = 1;
+            this.X_Button.Text = "X";
+            this.X_Button.Click += new System.EventHandler(this.X_Button_Click);
+            this.X_Button.MouseEnter += new System.EventHandler(this.X_Button_MouseEnter);
+            this.X_Button.MouseLeave += new System.EventHandler(this.X_Button_MouseLeave);
             // 
             // button2
             // 
@@ -167,10 +169,10 @@
             this.textBox1.Location = new System.Drawing.Point(100, 61);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(316, 80);
             this.textBox1.TabIndex = 11;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button_0
             // 
@@ -181,7 +183,7 @@
             this.button_0.TabIndex = 12;
             this.button_0.Text = "0";
             this.button_0.UseVisualStyleBackColor = false;
-            this.button_0.Click += new System.EventHandler(this.button10_Click);
+            this.button_0.Click += new System.EventHandler(this.button0_Click);
             // 
             // button_minus
             // 
@@ -231,17 +233,6 @@
             this.button_plus.UseVisualStyleBackColor = false;
             this.button_plus.Click += new System.EventHandler(this.button_plus_Click);
             // 
-            // button_point
-            // 
-            this.button_point.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_point.Location = new System.Drawing.Point(86, 445);
-            this.button_point.Name = "button_point";
-            this.button_point.Size = new System.Drawing.Size(94, 48);
-            this.button_point.TabIndex = 17;
-            this.button_point.Text = ".";
-            this.button_point.UseVisualStyleBackColor = true;
-            this.button_point.Click += new System.EventHandler(this.button_point_Click);
-            // 
             // button_Ravno
             // 
             this.button_Ravno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -252,7 +243,7 @@
             this.button_Ravno.TabIndex = 18;
             this.button_Ravno.Text = "=";
             this.button_Ravno.UseVisualStyleBackColor = true;
-            this.button_Ravno.Click += new System.EventHandler(this.button16_Click);
+            this.button_Ravno.Click += new System.EventHandler(this.button_ravno_Click);
             // 
             // button_reset
             // 
@@ -266,9 +257,9 @@
             // 
             // button_edit
             // 
-            this.button_edit.Location = new System.Drawing.Point(86, 158);
+            this.button_edit.Location = new System.Drawing.Point(86, 445);
             this.button_edit.Name = "button_edit";
-            this.button_edit.Size = new System.Drawing.Size(474, 23);
+            this.button_edit.Size = new System.Drawing.Size(94, 48);
             this.button_edit.TabIndex = 20;
             this.button_edit.Text = "<------";
             this.button_edit.UseVisualStyleBackColor = true;
@@ -278,12 +269,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(632, 554);
             this.Controls.Add(this.button_edit);
             this.Controls.Add(this.button_reset);
             this.Controls.Add(this.button_Ravno);
-            this.Controls.Add(this.button_point);
             this.Controls.Add(this.button_plus);
             this.Controls.Add(this.button_umnozh);
             this.Controls.Add(this.button_delenie);
@@ -298,15 +288,15 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.X_Button);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-            this.MouseHover += new System.EventHandler(this.Form1_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -316,7 +306,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label X_Button;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -331,7 +321,6 @@
         private System.Windows.Forms.Button button_delenie;
         private System.Windows.Forms.Button button_umnozh;
         private System.Windows.Forms.Button button_plus;
-        private System.Windows.Forms.Button button_point;
         private System.Windows.Forms.Button button_Ravno;
         private System.Windows.Forms.Button button_reset;
         private System.Windows.Forms.Button button_edit;
