@@ -186,7 +186,15 @@ namespace WindowsFormsApp1
             {
                 minus = true;
             }
-                
+            if(num2.Length > 0)
+            {
+                if (num2[0] == '-')
+                    if(minus && !umnozhenie && !plus && !delenie)
+                    {
+                        minus = false;
+                        plus = true;
+                    }
+            }
         }
         private void button_delenie_Click(object sender, EventArgs e)
         {
@@ -202,7 +210,6 @@ namespace WindowsFormsApp1
         {
             My_func();
         }
-
         private void button_umnozh_Click(object sender, EventArgs e)
         {
             My_func();
@@ -239,7 +246,6 @@ namespace WindowsFormsApp1
                 if (num1.Length > 0)
                     num1 = num1.Remove(num1.Length - 1);
             }
-        }   
-      
+        }        
     }
 }
