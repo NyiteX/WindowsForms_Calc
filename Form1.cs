@@ -201,7 +201,8 @@ namespace WindowsFormsApp1
         private void button_ravno_Click(object sender, EventArgs e)
         {
             My_func();
-        }        
+        }
+
         private void button_umnozh_Click(object sender, EventArgs e)
         {
             My_func();
